@@ -1,0 +1,4 @@
+launcher-buttons:
+  chrome:
+    command: "google-chrome &"
+    text: "Chrome"

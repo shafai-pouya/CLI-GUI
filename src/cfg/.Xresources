@@ -1,0 +1,5 @@
+UXTerm*background: black
+UXTerm*foreground: white
+
+XTerm*background: black
+XTerm*foreground: white
