@@ -35,7 +35,7 @@ Full Source of code is here.
 [Documentation for `src/cosntants.py`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-cosntants.py.md)<br>
 [Documentation for `src/WM/__init__.py`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-WM-__init__.py.md)<br>
 [Documentation for `src/taskbar/__init__.py`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-__init__.py.md)<br>
-[Documentation for `src/taskbar/appurance.py`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-appurance.py.md)<br>
+[Documentation for `src/taskbar/appearance.py`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-appearance.py.md)<br>
 [Documentation for `cfg` (configs folder)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/cfg.md)<br>
 [Documentation for `cfg/cfg.yaml`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/cfg-cfg.yaml.md)<br>
 [Documentation for `cfg/.Xresources`](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/cfg-.Xresources.md)<br>

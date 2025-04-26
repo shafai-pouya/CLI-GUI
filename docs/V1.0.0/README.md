@@ -20,4 +20,4 @@ Documentations of the code, installation, configs, etc.
 	3. [`src/constants.py` file](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-constants.py.md)
 	4. [Window manager (`src/WM/__init__.py`)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-WM-__init__.py.md)
 	5. [Taskbar (`src/taskbar/__init__.py`)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-__init__.py.md)
-	6. [Taskbar's appurance (`src/taskbar/appurance.py`)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-appurance.py.md)
+	6. [Taskbar's appearance (`src/taskbar/appearance.py`)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/src-taskbar-appearance.py.md)

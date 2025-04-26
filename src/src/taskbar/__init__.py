@@ -13,7 +13,7 @@ root = screen.root
 
 
 
-import appurance
+from . import appearance
 
 
 class Taskbar(Gtk.Window):
@@ -58,7 +58,7 @@ class Taskbar(Gtk.Window):
 
         # show window
         self.show_all()
-        hbox.queue_draw()
+        vbox.queue_draw()
         
         # restore data that was on the taskbar after restarting that
         self.find_all_windows_and_map(root)
@@ -85,15 +85,15 @@ class Taskbar(Gtk.Window):
                 try:
                     button_command = button_details['command']
                     button_text    = button_details['text']
-                    self.add_button(button_text, topbox.pack_start, lambda button: os.system(button_command))
-                    configs.log('I', f'Added new launcher button to taskbar (id: "{button_id}", text: "{button_text}", command: "{button_command}"): {e}')
+                    self.add_button(button_text, self.topbox.pack_start, lambda button: os.system(button_command))
+                    configs.log('I', f'Added new launcher button to taskbar (id: "{button_id}", text: "{button_text}", command: "{button_command}")')
                 except Exception as e:
                     configs.log('E', f'An exception raised while itering in launcher button (id: "{button_id}" and details: "{repr(button_details)}"): {e}')
         except Exception as e:
             configs.log('E', f'An exception raised while itering in launcher buttons: {e}')
     
 
-    def find_all_windows_and_map(win):
+    def find_all_windows_and_map(self, win):
         try:
             windows = win.query_tree().children
         except Exception as e:
@@ -106,14 +106,17 @@ class Taskbar(Gtk.Window):
                     continue
             except:
                 continue
-            if not has_skip_taskbar(win):
-                self.add_window(window)
-                configs.log('I', 'Mapped a window to taskbar')
-            else:
-                configs.log('I', 'Unmappable window to map to the taskbar because of taskbar skipping option from window')
-            find_all_windows_and_map(window)
+            self.add_window_if_ok(window)
+            self.find_all_windows_and_map(window)
     
-    def has_skip_taskbar(window):
+    def add_window_if_ok(self, win):
+        if not self.has_skip_taskbar(win):
+            self.add_window(win)
+            configs.log('I', 'Mapped a window to taskbar')
+        else:
+            configs.log('I', 'Unmappable window to map to the taskbar because of taskbar skipping option from window')
+    
+    def has_skip_taskbar(self, window):
         prop = window.get_property(configs.ATOMS.NET_WM_STATE, Xatom.ATOM, 0, 1024)
     
         if not prop:
@@ -122,7 +125,7 @@ class Taskbar(Gtk.Window):
         return configs.ATOMS.NET_WM_STATE_SKIP_TASKBAR in prop.value
     
     
-    def get_window_title(window):
+    def get_window_title(self, window):
     
         title = window.get_property(configs.ATOMS.NET_WM_NAME, configs.ATOMS.UTF8_STRING, 0, 1024)
         if title:
@@ -135,7 +138,7 @@ class Taskbar(Gtk.Window):
     
         return None
     
-    def active_window(window):
+    def active_window(self, window):
         window.configure(stack_mode=X.Above)
     
         # Set input focus
@@ -160,7 +163,7 @@ class Taskbar(Gtk.Window):
         if win.id in self.windows:
             return
 
-        title = get_window_title(win)
+        title = self.get_window_title(win)
 
         self.add_button(title, self.topbox.pack_start, lambda button: active_window(win))
 

@@ -16,8 +16,8 @@ taskbar.TBinit()
 
 
 # main progress
-WM_thread      = threading.Thread(traget=WM.     WMmain)
-taskbar_thread = threading.Thread(traget=taskbar.TBmain)
+WM_thread      = threading.Thread(target=WM.     WMmain)
+taskbar_thread = threading.Thread(target=taskbar.TBmain)
 
 WM_thread.     start()
 taskbar_thread.start()

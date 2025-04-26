@@ -63,11 +63,11 @@ class Configs:
         log_path = ''
         inspect_path = inspect.stack()
         for inspect_point in reversed(inspect_path):
-            if inspect_point.function in log_path_functions:
-                log_path += log_path_functions[inspect_point.function]
+            if inspect_point.function in self.log_path_functions:
+                log_path += self.log_path_functions[inspect_point.function]
         
         # Log the message
-        print(f'[{log_type}]{log-path}  log_message', file=self.log_file, flush=True)
+        print(f'[{log_type}]{log_path}  {log_message}', file=self.log_file, flush=True)
     
     log_path_functions = {
         'WMinit': '[WMinit]',

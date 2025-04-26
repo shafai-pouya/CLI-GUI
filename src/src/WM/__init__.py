@@ -25,7 +25,7 @@ def find_the_window_type(win):
     if window_name_property and b'SHP GUI CUSTOM TASKBAR' in window_name_property.value:
         return WINDOW_TYPE_TASKBAR
     if not window_type_property:
-        configs.log('E', 'window type is empty!!!', file=log_f, flush=True)
+        configs.log('E', 'window type is empty!!!')
         return WINDOW_TYPE_NORMAL
     if window_type_property.value == NET_WM_WINDOW_TYPE_DOCK:
         return WINDOW_TYPE_DOCK
@@ -44,10 +44,10 @@ class Configure:
             win.configure(x=x, y=y, width=width, height=height)
             
         if need_send_configure_event:
-            send_configure_event(win, x, y, width, height, 0)
+            Configure.send_configure_event(win, x, y, width, height, 0)
         
     def get_configure_values(evt, window_type):
-        screen_width, screen_height = screen.width_in_pixels, screen.height_in_pixels
+        screen_width, screen_height = configs.screen.width_in_pixels, configs.screen.height_in_pixels
         if window_type == WINDOW_TYPE_TASKBAR:
                 return 0, 0, 64, screen_height, True, True
         if window_type == WINDOW_TYPE_DOCK:
@@ -75,7 +75,7 @@ class Configure:
         )
     
         win.send_event(event, event_mask=0)
-        d.flush()
+        configs.d.flush()
 
 
 class Map:
@@ -86,10 +86,10 @@ class Map:
         win.map()
         
         configs.log('I', 'Configuring and mapping window')
-        Configure.do_configure(win, evt, w_type)
+        Configure.do_configure(win, evt)
         
         configs.log('I', 'Mapping window to taskbar')
-        send_added_window_to_taskbar(win)
+        configs.taskbar.tsk.add_window_if_ok(win)
 
 class Unmap:
     def do_unmap(win, evt):
@@ -97,7 +97,7 @@ class Unmap:
         win.unmap()
         
         configs.log('I', 'Unmapping window from taskbar')
-        configs.taskbar.tsk.removeWindow(win)
+        configs.taskbar.tsk.remove_window(win)
         
 
 
@@ -111,7 +111,7 @@ def WMinit():
 def WMmain():
     while True:
         # get an event
-        event = d.next_event()
+        event = configs.d.next_event()
 
         # handle map events
         if event.type == X.MapRequest:
