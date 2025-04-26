@@ -1,7 +1,7 @@
 # Source code **V1.0.0**
 
 
-[![Version](https://img.shields.io/badge/version-V1.0.0-blue)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/README.md)
+[![Version](https://img.shields.io/badge/version-V1.0.0-blue)](https://github.com/shafai-pouya/CLI-GUI/tree/main/docs/V1.0.0/README.md)
 [![Licence](https://img.shields.io/github/license/shafai-pouya/CLI-GUI)](https://github.com/shafai-pouya/CLI-GUI/blob/main/LICENCE)
 ![Supported Linux distributions](https://img.shields.io/badge/Supported_Linux_distributions-Kali-blue)
 [![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](https://github.com/shafai-pouya/CLI-GUI/blob/main/docs/V1.0.0/README.md)
