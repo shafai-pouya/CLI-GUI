@@ -1,30 +1,7 @@
-#!/bin/python
-import os
-import time
+#!/bin/bash
 
-# begin applications like taskbar and titlebar
-# os.system("python ~/CLI-GUI/taskbar.py &")
+xrdb -merge ~/.Xresources
 
-# time.sleep(1)
-os.system('xrdb -merge ~/.Xresources')
+python /opt/CLI-GUI/__main__.py
 
-
-os.system("uxterm")
-
-time.sleep(1)
-
-os.system("python ~/CLI-GUI/WM.py &")
-
-time.sleep(1)
-
-# os.system("python ~/CLI-GUI/taskbar.py &")
-
-os.system("xsetroot -cursor_name X_cursor")   # begin cursor
-
-
-os.system("exec uxterm")
-
-# take a lopp
-while True:
-	pass
-
+exec uxterm
